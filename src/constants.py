@@ -1,12 +1,14 @@
 """
 This module contains constant values used throughout the project.
 """
+# Data Constants
+REGEX_EMPLOYEE = r'^[A-Za-z]+=(?:[A-Z]{2}\d{2}:\d{2}-\d{2}:\d{2},){0,4}[A-Z]{2}\d{2}:\d{2}-\d{2}:\d{2}$'
+REGEX_SHIFT = r'([A-Z]{2})(\d{2}:\d{2})-(\d{2}:\d{2})'
 
 # Days Constants
-WEEKDAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-WEEKENDS = ("Saturday", "Sunday")
-DAYS_CHOICES = WEEKDAYS + WEEKENDS
-DAYS_MAP = {
+AVAILABLE_DAYS = ("MO", "TU", "WE", "TH", "FR", "SA", "SU")
+WEEKDAYS = ("MO", "TU", "WE", "TH", "FR")
+DAYS = {
     "MO": "Monday",
     "TU": "Tuesday",
     "WE": "Wednesday",
@@ -16,49 +18,29 @@ DAYS_MAP = {
     "SU": "Sunday"
 }
 
-# Payroll Constants
-SHIFT_MORNING = "Morning Shift"
-SHIFT_AFTERNOON = "Afternoon Shift"
-SHIFT_NIGHT = "Night Shift"
-SHIFT_CHOICES = [SHIFT_MORNING, SHIFT_AFTERNOON, SHIFT_NIGHT]
-
-# Weekday Morning Shift
-WEEKDAY_MORNING_START = 1
-WEEKDAY_MORNING_END = 9
-WEEKDAY_MORNING_PAY = 25
-
-# Weekday Afternoon Shift
-WEEKDAY_AFTERNOON_START = 9
-WEEKDAY_AFTERNOON_END = 18
-WEEKDAY_AFTERNOON_PAY = 15
-
-# Weekday Night Shift
-WEEKDAY_NIGHT_START = 18
-WEEKDAY_NIGHT_END = 24
-WEEKDAY_NIGHT_PAY = 20
-
-# Weekend Morning Shift
-WEEKEND_MORNING_START = 1
-WEEKEND_MORNING_END = 9
-WEEKEND_MORNING_PAY = 30
-
-# Weekend Afternoon Shift
-WEEKEND_AFTERNOON_START = 9
-WEEKEND_AFTERNOON_END = 18
-WEEKEND_AFTERNOON_PAY = 20
-
-# Weekend Night Shift
-WEEKEND_NIGHT_START = 18
-WEEKEND_NIGHT_END = 24
-WEEKEND_NIGHT_PAY = 25
+# Rates Constants
+RATES = {
+    'weekday': [
+        {'start': '00:01', 'end': '09:00', 'rate': 25},
+        {'start': '09:01', 'end': '18:00', 'rate': 15},
+        {'start': '18:01', 'end': '00:00', 'rate': 20}
+    ],
+    'weekend': [
+        {'start': '00:01', 'end': '09:00', 'rate': 30},
+        {'start': '09:01', 'end': '18:00', 'rate': 20},
+        {'start': '18:01', 'end': '23:59', 'rate': 25}
+    ]
+}
 
 # Messages for errors
-INVALID_EMPLOYEE_DATA = "Invalid employee data provided."
-INVALID_SHIFT_DATA = "Invalid shift data provided."
-INVALID_PAY_RATE = "Pay rate must be greater than zero."
-INVALID_HOURS_WORKED = "Hours worked must be greater than zero."
-INVALID_SHIFT_TYPE = "Invalid shift type provided."
-INVALID_DATE_FORMAT = "Invalid date format provided."
+INVALID_EMPLOYEE_DATA = "Invalid employee data provided"
+INVALID_SHIFT_DATA = "Invalid shift data provided"
+INVALID_PAY_RATE = "Pay rate must be greater than zero"
+INVALID_HOURS_WORKED = "Hours worked must be greater than zero"
+INVALID_SHIFT_TYPE = "Invalid shift type provided"
+INVALID_DATE_FORMAT = "Invalid date format provided"
+INVALID_DAY_CODE = "Invalid day code provided"
+FILE_NOT_FOUND = "File not found"
 
 # Messages for success
 PAYROLL_CALCULATED_SUCCESSFULLY = "Payroll calculated successfully."
