@@ -1,13 +1,13 @@
 import sys
 
-from acme_payroll.cli import automaticProcessing, manualProcessing
+from acme_payroll.cli import automatic_processing, manual_processing
 
 def main():
     args = sys.argv[1:]
     if len(args) >= 1:
-        manualProcessing(args)
+        manual_processing(args)
     else:
-        automaticProcessing()
+        automatic_processing()
 
 
 if __name__ == '__main__':

@@ -1,6 +1,8 @@
 from typing import List
+
 from acme_payroll.employee.employee import Employee
 from acme_payroll.shift.shift import Shift
+
 
 class EmployeeService:
     def __init__(self, shift_class: Shift):

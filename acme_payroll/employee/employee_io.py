@@ -1,8 +1,8 @@
 from typing import List, Tuple
 
 from acme_payroll.exceptions import FileException
-
 from acme_payroll.utils.utils import Utils
+
 
 class EmployeeIO:
     """

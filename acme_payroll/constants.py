@@ -17,6 +17,8 @@ DAYS = {
     "SA": "Saturday",
     "SU": "Sunday"
 }
+WEEKDAY = "weekday"
+WEEKEND = "weekend"
 
 # Rates Constants
 RATES = {
@@ -41,6 +43,10 @@ INVALID_SHIFT_TYPE = "Invalid shift type provided"
 INVALID_DATE_FORMAT = "Invalid date format provided"
 INVALID_DAY_CODE = "Invalid day code provided"
 FILE_NOT_FOUND = "File not found"
+MISSING_ARGUMENT = "Missing argument for option"
+INVALID_OPTION = "Invalid option"
+RATES_NOT_PROVIDED = "Rates not provided"
 
 # Messages for success
 PAYROLL_CALCULATED_SUCCESSFULLY = "Payroll calculated successfully."
+PAYROLL_CALCULATED_MESSAGE = "The amount to pay {employee_name} is: {payroll} USD"
