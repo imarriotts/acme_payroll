@@ -1,7 +1,7 @@
 import sys
 import logging
 
-from .constants import FILE_NOT_FOUND
+from acme_payroll.constants import FILE_NOT_FOUND
 
 class FileException(Exception):
     def __init__(self, file_path):

@@ -1,6 +1,6 @@
 import sys
 
-from src.cli import automaticProcessing, manualProcessing
+from acme_payroll.cli import automaticProcessing, manualProcessing
 
 def main():
     args = sys.argv[1:]

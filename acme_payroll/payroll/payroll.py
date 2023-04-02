@@ -1,9 +1,9 @@
 from typing import List
 from datetime import datetime
 
-from ..shift.shift import Shift
-from ..employee.employee import Employee
-from ..constants import RATES
+from acme_payroll.shift.shift import Shift
+from acme_payroll.employee.employee import Employee
+from acme_payroll.constants import RATES
 
 
 class PayrollService:
@@ -45,18 +45,21 @@ class PayrollService:
 
         rates = self.rates[rate_key]
         for rate_period in rates:
-            start_time = datetime.strptime(rate_period['start'], '%H:%M')
-            end_time = datetime.strptime(rate_period['end'], '%H:%M')
+            rate_start_time = datetime.strptime(rate_period['start'], '%H:%M')
+            rate_end_time = datetime.strptime(rate_period['end'], '%H:%M')
             shift_start_time = datetime.strptime(shift.start_time, '%H:%M')
             shift_end_time = datetime.strptime(shift.end_time, '%H:%M')
             # it acts weird when the end time is 00:00, for now im setting it to 23:59
             if rate_period['end'] == '00:00':
-                end_time = datetime.strptime('23:59', '%H:%M')
-            if shift_start_time >= start_time and shift_end_time <= end_time:
-                endTime = min(shift_end_time, end_time)
-                startTime = max(shift_start_time, start_time)
+                rate_end_time = datetime.strptime('23:59', '%H:%M')
+            shiftInsideRate = rate_start_time <= shift_start_time <= rate_end_time
+            shiftOverlapsRate = rate_start_time <= shift_end_time <= rate_end_time
+            if shiftInsideRate or shiftOverlapsRate:
+                startTime = max(shift_start_time, rate_start_time)
+                endTime = min(shift_end_time, rate_end_time)
                 shift_duration = endTime - startTime
                 rate = rate_period['rate']
+                # print('\n',startTime, endTime, shift_duration, rate)
                 total_pay += shift_duration.total_seconds() / 3600 * rate
 
         return total_pay

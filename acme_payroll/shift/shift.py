@@ -1,7 +1,7 @@
 import re
 from datetime import datetime
 
-from ..constants import DAYS, REGEX_SHIFT, WEEKDAYS
+from acme_payroll.constants import DAYS, REGEX_SHIFT, WEEKDAYS
 
 
 class Shift:

@@ -1,12 +1,12 @@
 
 
 from typing import List
-from .constants import RATES
+from acme_payroll.constants import RATES
 
-from .payroll.payroll import PayrollService
-from .shift.shift import Shift
-from .employee.employee_io import EmployeeIO
-from .employee.employee_service import EmployeeService
+from acme_payroll.payroll.payroll import PayrollService
+from acme_payroll.shift.shift import Shift
+from acme_payroll.employee.employee_io import EmployeeIO
+from acme_payroll.employee.employee_service import EmployeeService
 
 
 def manualProcessing(args: list[str]):

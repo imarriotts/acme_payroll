@@ -2,7 +2,7 @@ import os
 import re
 from typing import List, Tuple
 
-from ..constants import AVAILABLE_DAYS, INVALID_DATE_FORMAT, INVALID_DAY_CODE, INVALID_EMPLOYEE_DATA, REGEX_EMPLOYEE
+from acme_payroll.constants import AVAILABLE_DAYS, INVALID_DATE_FORMAT, INVALID_DAY_CODE, INVALID_EMPLOYEE_DATA, REGEX_EMPLOYEE
 
 
 class Utils:
