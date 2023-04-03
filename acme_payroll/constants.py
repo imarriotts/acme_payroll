@@ -48,6 +48,7 @@ INVALID_OPTION = "Invalid option:"
 RATES_NOT_PROVIDED = "Rates not provided"
 INVALID_INPUT = "Invalid input. Please enter a number corresponding to a file in the list."
 NO_FILES_FOUND_INPUT = "No .txt files found in input folder. Please add .txt files to the input folder and try again."
+NO_EMPLOYEES_FOUND = "No employee data found in file, please check the file and try again."
 
 # Messages for success
 PAYROLL_CALCULATED_SUCCESSFULLY = "Payroll calculated successfully."

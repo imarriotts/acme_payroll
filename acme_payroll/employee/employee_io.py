@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+from acme_payroll.constants import NO_EMPLOYEES_FOUND
 from acme_payroll.exceptions import FileException
 from acme_payroll.utils.utils import Utils
 
@@ -25,6 +26,8 @@ class EmployeeIO:
         with open(self.file_path, 'r') as f:
             employee_data = [line.strip() for line in f.readlines()]
         validation_errors = Utils.validate_employee_data(employee_data)
+        if employee_data == []:
+            validation_errors.append(NO_EMPLOYEES_FOUND)
         return employee_data, validation_errors
     
 class EmployeeInputSingle:
