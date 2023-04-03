@@ -43,10 +43,18 @@ INVALID_SHIFT_TYPE = "Invalid shift type provided"
 INVALID_DATE_FORMAT = "Invalid date format provided"
 INVALID_DAY_CODE = "Invalid day code provided"
 FILE_NOT_FOUND = "File not found"
-MISSING_ARGUMENT = "Missing argument for option"
-INVALID_OPTION = "Invalid option"
+MISSING_ARGUMENT = "Missing argument for option:"
+INVALID_OPTION = "Invalid option:"
 RATES_NOT_PROVIDED = "Rates not provided"
+INVALID_INPUT = "Invalid input. Please enter a number corresponding to a file in the list."
+NO_FILES_FOUND_INPUT = "No .txt files found in input folder. Please add .txt files to the input folder and try again."
 
 # Messages for success
 PAYROLL_CALCULATED_SUCCESSFULLY = "Payroll calculated successfully."
 PAYROLL_CALCULATED_MESSAGE = "The amount to pay {employee_name} is: {payroll} USD"
+
+# Example data
+EXAMPLE_INPUT = "IVAN=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00"
+EXAMPLE_OUTPUT = "The amount to pay IVAN is: 85.00 USD"
+EXAMPLE_FILE = "acme_payroll/tests/data/employee_data.txt"
+EXAMPLE_FILE_COPY = "input/payroll_example.txt"

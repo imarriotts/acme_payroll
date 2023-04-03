@@ -31,7 +31,7 @@ class Utils:
         for line_num, line in enumerate(employee_data):
             if not re.match(REGEX_EMPLOYEE, line):
                 validation_errors.append(
-                    f"{INVALID_EMPLOYEE_DATA} at line {line_num+1}")
+                    f"\t{INVALID_EMPLOYEE_DATA} at line {line_num+1}")
                 continue
             entries = line.split('=')
             employee_name = entries[0]
@@ -41,12 +41,12 @@ class Utils:
                 day = schedule_parts[0][:2]
                 if day not in AVAILABLE_DAYS:
                     validation_errors.append(
-                        f"{INVALID_DAY_CODE} at line {line_num+1} for employee {employee_name}")
+                        f"\t{INVALID_DAY_CODE} at line {line_num+1} for employee {employee_name}")
                     break
                 start_time, end_time = schedule_parts[0][2:], schedule_parts[1]
                 if not all([Utils.validate_time_format(time_str) for time_str in [start_time, end_time]]):
                     validation_errors.append(
-                        f"{INVALID_DATE_FORMAT} at line {line_num+1} for employee {employee_name}")
+                        f"\t{INVALID_DATE_FORMAT} at line {line_num+1} for employee {employee_name}")
                     break
         return validation_errors
 

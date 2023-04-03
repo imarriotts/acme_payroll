@@ -96,7 +96,7 @@ The main modules are as follows:
 
 Finally, the project includes a suite of unit tests to ensure the correctness of the application's behavior. The tests are implemented using the built-in unittest module in Python, and are located in the `acme_payroll/tests` directory. 
 
-The test cases cover all the major functionalities of the application, including employee management, shifts and payroll generation. The tests are automatically executed on push and pull request events using GitHub Actions.
+The test cases cover all the major functionalities of the application, including employee and shifts reading and payroll generation. The tests are automatically executed on push and pull request events using GitHub Actions.
 
 ### Design Patterns Used
 
@@ -104,11 +104,11 @@ The test cases cover all the major functionalities of the application, including
 
 - Repository Pattern: While this solution doesn't have a traditional database or data store, the use of the `EmployeeIO` class can be seen as performing a similar function as a repository. It provides a standardized way to read employee data from a file, encapsulating the logic for accessing and parsing the data. Similarly, the `Shift` class provides a standardized way to parse shift data from a string. Together, they perform a similar function as repositories in providing a standardized way to access and parse data.
 
-- Command Line Interface Pattern: The command line interface pattern provides a simple, interactive interface to the application's functionality. This pattern is implemented in cli.py.
+- Command Line Interface Pattern: The command line interface pattern provides a simple, interactive interface to the application's functionality. This pattern is implemented in `cli.py`.
 
-- Dependency Injection: The EmployeeService class depends on the Shift class, which is injected as a dependency through the constructor. This allows for easier testing and decouples the EmployeeService class from the Shift class implementation.
+- Dependency Injection: The `EmployeeService` class depends on the Shift class, which is injected as a dependency through the constructor. This allows for easier testing and decouples the `EmployeeService` class from the Shift class implementation.
 
-- Builder: The PayrollService class is built using the Builder pattern, allowing for a more flexible and configurable way of creating objects.
+- Builder: The `PayrollService` class is built using the Builder pattern, allowing for a more flexible and configurable way of creating payroll objects.
 
 -----------------------
 ## Approach and Methodology
@@ -121,9 +121,11 @@ The project was managed using a version control system (Git) and hosted on a rem
 -----------------------
 ## Local Setup
 
-To run the ACME Payroll System locally, you'll need Python 3.10 installed. Follow these steps:
-
+To run the ACME Payroll System locally, you'll need [Python 3.10](https://www.python.org/downloads/) installed. 
+ 
+### Follow these steps:
 - Depending on your operating system, you may need to use `python3` instead of `python`
+
 ### Clone the repository: 
  ```bash
  git clone https://github.com/imarriotts/acme_payroll
@@ -140,18 +142,11 @@ python acme_payroll.py -f employee_data.txt
 -   The `-f` flag is used to specify the input file containing employee data.
 -   The `filename.txt` argument is the name of the input file containing employee data.
 
-### Run the CLI with the `-h` or `-a` flags for more information:
- ```bash
-python acme_payroll.py -h
-python acme_payroll.py -a
-```
--   The `-h` flag displays the help message for the CLI.
--   The `-a` flag displays the about message for the CLI.
 ### Automatic Processing of Input File:
  ```bash
 python acme_payroll.py
 ```
--   If no input file is specified, the CLI will automatically read a directory of input, and ask the user to select a file to process.
+-   If no input file is specified, the CLI will automatically create and read a directory named input, and ask the user to select a file to process.
 
 ### Single Line Input Processing:
  ```bash
@@ -160,6 +155,13 @@ python acme_payroll.py -i "IVAN=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00"
 -   The `-i` flag is used to specify a single line of employee data.
 -   The `IVAN=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00` argument is a single line of employee data.
 -  The CLI will automatically process the input and display the output.
+### Run the CLI with the `-h` or `-a` flags for more information:
+ ```bash
+python acme_payroll.py -h
+python acme_payroll.py -a
+```
+-   The `-h` flag displays the help message for the CLI.
+-   The `-a` flag displays the about message for the CLI.
 -----------------------
 ## Testing
 
@@ -172,6 +174,10 @@ cd acme-payroll
 Run the tests: 
 ```bash
 python -m unittest discover -s acme_payroll/tests
+```
+If a more verbose output is desired, use the `-v` flag:
+```bash
+python -m unittest discover -s acme_payroll/tests -v
 ```
 -----------------------
 ## Afterword
