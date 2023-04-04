@@ -140,7 +140,7 @@ cd acme-payroll
 python acme_payroll.py -f employee_data.txt
 ```
 -   The `-f` flag is used to specify the input file containing employee data.
--   The `filename.txt` argument is the name of the input file containing employee data.
+-   The `employee_data.txt` argument is the name of the input file containing employee data.
 
 ### Automatic Processing of Input File:
  ```bash
